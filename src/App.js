@@ -1,11 +1,12 @@
 import './App.css';
+import Menu from './components/Menu';
 import Routes from './routes';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h3>HEADER</h3>
+        <Menu/>
       </header>
       <main className='App-main'>
         <Routes/>
