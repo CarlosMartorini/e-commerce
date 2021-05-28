@@ -1,13 +1,13 @@
 import { CardProduct, Button } from './styles';
-import { TiShoppingCart } from 'react-icons/ti';
+import { FaShoppingCart } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../store/modules/cart/actions';
+import { addToCartThunk, removeFromCartThunk } from '../../store/modules/cart/thunks';
 
 const Product = ({product, isRemovable = false}) => {
 
     const dispatch = useDispatch();
 
-    const { name, img, price } = product;
+    const { id, name, img, price } = product;
     return(
         <CardProduct>
             <h3>{name}</h3>
@@ -15,13 +15,13 @@ const Product = ({product, isRemovable = false}) => {
             <h3>${price}</h3>
             {
                 isRemovable ? (
-                    <Button style={{backgroundColor:'yellow'}}
-                        oncClick={() => dispatch(removeFromCart(product))}
-                    ><TiShoppingCart/> Remove</Button>        
+                    <Button style={{backgroundColor:'yellow', color:'red'}}
+                        onClick={() => dispatch(removeFromCartThunk(id))}
+                    >Remove<FaShoppingCart/></Button>        
                 ) : (
                     <Button 
-                        oncClick={() => dispatch(addToCart(product))}
-                    ><TiShoppingCart/> Buy</Button>
+                        onClick={() => dispatch(addToCartThunk(product))}
+                    ><FaShoppingCart/>Buy</Button>
                 )
             }
         </CardProduct>
