@@ -1,5 +1,5 @@
 import './App.css';
-import Products from './components/Products';
+import Routes from './routes';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
         <h3>HEADER</h3>
       </header>
       <main className='App-main'>
-        <Products/>
+        <Routes/>
       </main>
     </div>
   );
