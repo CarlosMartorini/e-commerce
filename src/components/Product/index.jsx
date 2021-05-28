@@ -12,7 +12,7 @@ const Product = ({product, isRemovable = false}) => {
         <CardProduct>
             <h3>{name}</h3>
             <img src={img} alt={name}/>
-            <h3>R$ {price},00</h3>
+            <h3>${price}</h3>
             {
                 isRemovable ? (
                     <Button style={{backgroundColor:'yellow'}}
